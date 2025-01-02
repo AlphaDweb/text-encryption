@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption/Decryption Tool</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text color for dark theme */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .container {
+            background-color: #1f1f1f; /* Slightly lighter than body */
+            padding: 40px;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 900px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-10px);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ff6f61;
+            animation: slideIn 1s ease-out;
+        }
+
+        input,
+        textarea,
+        button {
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            margin: 10px 0;
+            width: 100%;
+            font-size: 1em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        input,
+        textarea {
+            background-color: #333333; /* Dark background for input */
+            color: #ffffff; /* White text */
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #ff6f61;
+            color: white;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff4535;
+        }
+
+        .result-box {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #222222; /* Darker result box */
+            border-radius: 8px;
+            min-height: 150px;
+            color: #ff6f61;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .result-box p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #bbb;
+            transition: opacity 0.5s ease;
+        }
+
+        .footer:hover {
+            opacity: 0.8;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        /* Animation styles */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Encryption and Decryption Tool</h1>
+
+        <!-- Encryption Section -->
+        <div class="section">
+            <h2>Encrypt Your Text</h2>
+            <input type="text" id="dataToEncrypt" placeholder="Enter text to encrypt">
+            <button onclick="encryptText()">Encrypt</button>
+        </div>
+
+        <!-- Decryption Section -->
+        <div class="section">
+            <h2>Decrypt Your Text</h2>
+            <input type="text" id="encryptedData" placeholder="Enter encrypted data">
+            <button onclick="decryptText()">Decrypt</button>
+        </div>
+
+        <!-- Results Section -->
+        <div class="result-box" id="resultBox">
+            <p id="resultText">Your encrypted/decrypted text will appear here...</p>
+        </div>
+
+       
+    </div>
+
+    <script>
+        function encryptText() {
+            const data = document.getElementById("dataToEncrypt").value;
+            if (data.trim() === "") {
+                alert("Please enter some text to encrypt.");
+                return;
+            }
+
+            // Simulating encryption (replace this with actual encryption logic)
+            let encrypted = btoa(data); // base64 encode as a placeholder
+            document.getElementById("resultText").textContent = encrypted;
+        }
+
+        function decryptText() {
+            const encryptedData = document.getElementById("encryptedData").value;
+            if (encryptedData.trim() === "") {
+                alert("Please enter encrypted data.");
+                return;
+            }
+
+            // Simulating decryption (replace this with actual decryption logic)
+            let decrypted = atob(encryptedData); // base64 decode as a placeholder
+            document.getElementById("resultText").textContent = decrypted;
+        }
+    </script>
+</body>
+
+</html>
