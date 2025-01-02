@@ -26,7 +26,7 @@ Python 3: Programming language used for implementation.
 
 # Installation
 ```bash 
-git clone https://github.com/your-username/rsa-encryption-webapp.git
+https://github.com/AlphaDweb/text-encryption.git
 cd rsa-encryption-webapp
 ```
 ### 2. Install Dependencies:
